@@ -14,11 +14,11 @@
 
 import pika
 import os
-
+from consumer.consumer_interface import mqConsumerInterface
 class mqConsumer:
-    binding_key = ""
-    exchange_name = ""
-    queue_name = ""
+    # binding_key = ""
+    # exchange_name = ""
+    # queue_name = ""
     def __init__(
         self, binding_key: str, exchange_name: str, queue_name: str
     ) -> None:
