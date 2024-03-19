@@ -12,50 +12,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import pika
+import os
 
 class mqConsumerInterface:
+    binding_key = ""
+    exchange_name = ""
+    queue_name = ""
     def __init__(
         self, binding_key: str, exchange_name: str, queue_name: str
     ) -> None:
         # Save parameters to class variables
-
+        self.binding_key = binding_key
+        self.exchange_name = exchange_name
+        self.queue_name = queue_name
+        
         # Call setupRMQConnection
+        self.channel, self.connection, self.exchange = self.setupRMQConnection(self)
         pass
 
     def setupRMQConnection(self) -> None:
         # Set-up Connection to RabbitMQ service
-
-        # Establish Channel
-
-        # Create Queue if not already present
-
-        # Create the exchange if not already present
-
-        # Bind Binding Key to Queue on the exchange
-
-        # Set-up Callback function for receiving messages
         pass
 
     def on_message_callback(
         self, channel, method_frame, header_frame, body
     ) -> None:
         # Acknowledge message
-
-        #Print message (The message is contained in the body parameter variable)
-
+       
         pass
 
     def startConsuming(self) -> None:
         # Print " [*] Waiting for messages. To exit press CTRL+C"
-
-        # Start consuming messages
+       
         pass
     
     def __del__(self) -> None:
         # Print "Closing RMQ connection on destruction"
-        
-        # Close Channel
-
-        # Close Connection
+    
         
         pass
