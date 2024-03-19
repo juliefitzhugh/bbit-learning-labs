@@ -14,7 +14,7 @@
 
 import pika
 import os
-from consumer.consumer_interface import mqConsumerInterface
+#from consumer.consumer_interface import mqConsumerInterface
 class mqConsumer:
     # binding_key = ""
     # exchange_name = ""
@@ -51,7 +51,7 @@ class mqConsumer:
         
         # Set-up Callback function for receiving messages
         self.channel.basic_consume(self.queue_name, 
-            self.startConsuming, auto_ack=False)
+            self.on_message_callback, auto_ack=False)
     
 
     def on_message_callback(
