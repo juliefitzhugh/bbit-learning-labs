@@ -78,8 +78,7 @@ class mqConsumer:
 
      
         # Create the exchange if not already present
-        self.channel.exchange_declare(exchange=self.exchange_name)
-
+        self.channel.exchange_declare(exchange=self.exchange_name,  exchange_type="topic")
 
 
     def bindQueueToExchange(self, queueName: str, topic: str) -> None:
